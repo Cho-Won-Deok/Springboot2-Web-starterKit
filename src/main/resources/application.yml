@@ -1,0 +1,30 @@
+logging:
+  file:
+    path: logs/
+  level:
+    org:
+      hibernate:
+        SQL: INFO
+      springframework: INFO
+
+server:
+  port: 9090
+  servlet:
+    session:
+      timeout: 3600
+
+spring:
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mariadb://localhost/guestbook?serverTimezone=Asia/Seoul&useUnicode=yes&characterEncoding=UTF-8
+    hikari:
+      max-lifetime: 40000
+      password: guestbook!@#
+      username: guestbook
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  servlet:
+    multipart:
+      max-file-size: 10MB
